@@ -1,32 +1,32 @@
 SELECT * FROM db_m7.product;
 
-/* Q4 */
+/* Q4 - Using column aliases */
 SELECT P_CODE, P_DESCRIPT, P_PRICE, P_QOH
 FROM PRODUCT
 
-/* Q5 */
+/* Q5 - Using computed columns */
 SELECT P_Code, P_DESCRIPT, P_PRICE, P_QOH, P_PRICE*P_QOH AS TotalValue
 FROM PRODUCT
 
-/* Q6 */
+/* Q6 - Listing unique values */
 SELECT DISTINCT V_CODE
 FROM PRODUCT;
 
-/* Q7 */
+/* Q7 - JOIN USING syntax (supported in Oracle and MySQL ONLY) */
 SELECT P_Code, V_Code, V_Name
 FROM PRODUCT JOIN VENDOR USING (V_CODE);
 
-/*Q8*/
+/*Q8 - JOIN ON syntax  (USUALLY COMMON)  */
 SELECT P_Code, PRODUCT.V_Code, V_Name
 FROM PRODUCT JOIN VENDOR
 	ON PRODUCT.V_Code=VENDOR.V_Code;
 
-/*Q9*/
+/*Q9 - Outer joins (left) */
 SELECT P_Code, PRODUCT.V_Code, V_Name
 FROM PRODUCT LEFT OUTER JOIN VENDOR
 	ON PRODUCT.V_Code=VENDOR.V_Code;
     
-/*Q10*/    
+/*Q10 - Outer joins (right) */    
 SELECT P_Code, PRODUCT.V_Code, V_Name
 FROM PRODUCT RIGHT OUTER JOIN VENDOR
 	ON PRODUCT.V_Code=VENDOR.V_Code;    
